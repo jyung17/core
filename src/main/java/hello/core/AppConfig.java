@@ -22,17 +22,21 @@ public class AppConfig {
   // DI(Dependency Injection) 우리말로 의존관계 주입 또는 의존성 주입이라 한다.
   @Bean
   public MemberService memberService() {
+    System.out.println("call AppConfig.memberService");
     return new MemberServiceImpl(memberRepository());
   }
   
   @Bean
   public static MemoryMemberRepository memberRepository() {
+    System.out.println("call AppConfig.memberRepository");
     return new MemoryMemberRepository();
   }
   
   @Bean
   public OrderService orderService() {
-    return new OrderServiceImpl(memberRepository(), discountPolicy());
+    System.out.println("call AppConfig.orderService");
+//    return new OrderServiceImpl(memberRepository(), discountPolicy());
+    return null;
   }
   
   @Bean
